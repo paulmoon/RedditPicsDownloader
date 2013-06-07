@@ -13,6 +13,7 @@ Place the Python program in a folder where you would like your images to be down
 - [ ] Implement command line arguments support for subreddits, vote threshold, keywords etc.
 - [ ] Imgur album support.
 - [ ] Get Weekly/Monthly top posts since they are more likely to have a higher score.
+- [ ] Modularize the code.
 
 ### Contact
 Paul Moon: [Linkedin](http://www.linkedin.com/profile/view?id=117122782), [Email](mailto:moon.haein@gmail.com)
