@@ -9,6 +9,7 @@ First, you need to get an imgur API key [here](http://api.imgur.com/#register). 
 Place the Python program in a folder where you would like your images to be downloaded, and run the program. In the source code, you can also change things like subreddits, vote threshold, and number of posts scanned in a subreddit.
 
 ### To-Do List
+- [ ] Implement GUI using PyQt.
 - [ ] Some images are 0 bytes. They are valid imgur links, but something's wrong.
 - [ ] Implement command line arguments support for subreddits, vote threshold, keywords etc.
 - [ ] Imgur album support.
