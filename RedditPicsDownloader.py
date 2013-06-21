@@ -14,7 +14,7 @@ def create_dir():
 
 def main():
     # Default subreddit lists
-    subreddit_list = ["roomporn", "wallpapers", "spaceporn", "earthporn", "waterporn", "skyporn", "spaceporn", "fireporn", "destructionporn", "geologyporn", "winterporn", "autumnporn", "cityporn", "villageporn", "abandonedporn", "infrastructureporn", "machineporn", "militaryporn", "cemeteryporn", "architectureporn", "carporn", "gunporn", "boatporn", "aerialporn", "F1porn", "ruralporn", "animalporn", "botanicalporn", "humanporn", "adrenalineporn", "climbingporn", "culinaryporn", "foodporn", "dessertporn", "agricultureporn", "designporn", "albumartporn", "movieposterporn", "adporn", "geekporn", "instrumentporn", "macroporn", "artporn", "fractalporn", "exposureporn", "microporn", "metalporn", "streetartporn", "historyporn", "mapporn", "bookporn", "newsporn", "quotesporn", "futureporn"]
+    subreddit_list = ["roomporn", "wallpapers", "spaceporn", "earthporn", "waterporn", "skyporn", "spaceporn"]
     vote_threshold = 1500
     items_limit = 100
     download_count = 0
@@ -51,15 +51,16 @@ def main():
                                                  headers=imgur_header)
 
                         if imgur_req is not None:
-                            output_file = open(download_path + "\{}.{}".format(imghash, file_type), "wb")
                             imgur_url = requests.get(imgur_req.json()["data"]["link"])
-                            if "{}.{}".format(imghash, file_type) not in current_files:
-                                print ("There is a duplicate file. Skipping.")
+                            if "{}.{}".format(imghash, file_type) in current_files:
+                                print ("There is a duplicate file {}.{}. Skipping.").format(imghash, file_type)
+                            else:
+                                output_file = open(download_path + "\{}.{}".format(imghash, file_type), "wb")
                                 output_file.write(imgur_url.content)
-                            download_count += 1
+                                print ("Downloaded {}.{} successfully!".format(imghash, file_type))
+                                download_count += 1
                         else:
                             print ("Could not succesfully download the image.")
-                        print ("Downloaded {}.{} successfully!".format(imghash, file_type))
         except Exception:
             print ("Error while opening {}.\n".format(subreddit))
     print ("Downloaded {} images successfully.".format(download_count))
