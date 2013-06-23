@@ -4,7 +4,10 @@ import requests
 
 
 def create_dir():
-    download_path = os.getcwd() + "\\RedditImages"
+    if os.name == "posix":
+        download_path = os.getcwd() + "/RedditImages/"
+    else:
+        download_path = os.getcwd() + "\\RedditImages\\"
 
     if not os.path.exists(download_path):
         os.makedirs(download_path)
@@ -55,7 +58,7 @@ def main():
                             if "{}.{}".format(imghash, file_type) in current_files:
                                 print ("There is a duplicate file {}.{}. Skipping.").format(imghash, file_type)
                             else:
-                                output_file = open(download_path + "\{}.{}".format(imghash, file_type), "wb")
+                                output_file = open(download_path + "{}.{}".format(imghash, file_type), "wb")
                                 output_file.write(imgur_url.content)
                                 print ("Downloaded {}.{} successfully!".format(imghash, file_type))
                                 download_count += 1
