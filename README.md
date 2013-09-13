@@ -9,10 +9,10 @@ First, you need to get an imgur API key [here](http://api.imgur.com/#register). 
 Place the Python program in a folder where you would like your images to be downloaded, and run the program. In the source code, you can also change things like subreddits, vote threshold, and number of posts scanned in a subreddit.
 
 ### To-Do List
-- [ ] Get Weekly/Monthly top posts since they are more likely to have a higher score.
-- [ ] Implement command line arguments support for subreddits, vote threshold, keywords etc.
+- [X] Get Weekly/Monthly top posts since they are more likely to have a higher score.
+- [x] Implement command line arguments support for subreddits, vote threshold, keywords etc.
+- [x] Modularize the code.
 - [ ] Imgur album support.
-- [ ] Modularize the code.
 
 ### Contact
 Paul Moon: [Linkedin](http://www.linkedin.com/profile/view?id=117122782), [Email](mailto:moon.haein@gmail.com)
